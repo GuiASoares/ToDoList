@@ -1,0 +1,8 @@
+{
+    "name": "todolist/site",
+    "autoload": {
+        "psr-4": {
+            "Src\\" : "src"
+        }
+    }
+}

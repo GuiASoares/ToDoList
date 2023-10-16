@@ -32,13 +32,31 @@
             try{
                 $statement = $this->connection->prepare($query);
                 $statement->execute($params);
+                return $statement;
             } catch (PDOException $e){
                 die ('ERROR: '. $e->getMessage());
             }
         }
 
         public function insert($values){
+            $fields = array_keys($values);
+            $binds = array_pad([], count($fields), '?');
 
+            $query = 'INSERT INTO ' .$this->table. '(' .implode(',', $fields). ') VALUES (' .implode(',', $binds). ')';
+
+            $this->execute($query, array_values($values));
+
+            return true;
+        }
+
+        public function select($where = null, $order = null, $limit = null, $fields = '*'){
+            $where = !empty($where) ? 'WHERE ' .$where : '';
+            $order = !empty($order) ? 'ORDER BY ' .$order : '';
+            $limit = !empty($limit) ? 'LIMIT ' .$limit : '';
+
+            $query = 'SELECT ' .$fields. ' FROM ' .$this->table. ' ' .$where. ' ' .$order. ' ' .$limit;
+
+            return $this->execute($query);
         }
     }
 ?>

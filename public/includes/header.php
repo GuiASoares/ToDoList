@@ -20,7 +20,7 @@
     </header>
     <main class="container d-flex mt-5">
         <section class="container bg-light d-flex flex-column rounded fw-bold" style="width: 20%; height: 125px;">
-            <a href="../pages/index.php" class="p-2 text-decoration-none text-hover">Tarefas Pendentes</a>
+            <a href="../pages/index.php?filtro=pendentes" class="p-2 text-decoration-none text-hover">Tarefas Pendentes</a>
             <a href="../pages/criarTarefa.php" class="p-2 text-decoration-none text-hover">Nova Tarefa</a>
-            <a href="" class="p-2 text-decoration-none text-hover">Todas as Tarefas</a>
+            <a href="../pages/index.php?filtro=" class="p-2 text-decoration-none text-hover">Todas as Tarefas</a>
         </section>

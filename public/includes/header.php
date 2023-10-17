@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
     <style>
         .text-hover {
             color: #212529;
@@ -21,6 +22,6 @@
     <main class="container d-flex mt-5">
         <section class="container bg-light d-flex flex-column rounded fw-bold" style="width: 20%; height: 125px;">
             <a href="../pages/index.php?filtro=pendentes" class="p-2 text-decoration-none text-hover">Tarefas Pendentes</a>
-            <a href="../pages/criarTarefa.php" class="p-2 text-decoration-none text-hover">Nova Tarefa</a>
             <a href="../pages/index.php?filtro=" class="p-2 text-decoration-none text-hover">Todas as Tarefas</a>
+            <a href="../pages/criarTarefa.php" class="p-2 text-decoration-none text-hover">Nova Tarefa</a>
         </section>

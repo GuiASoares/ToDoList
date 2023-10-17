@@ -9,8 +9,8 @@
         header('Location: formulario.php?erro=naoInserido');
         exit;
     } else {
-        $tarefa = new Tarefa($descricao);
-        $cadastro = $tarefa->cadastrar($descricao);
-        echo $cadastro ? 'Sucesso' : 'Fracasso';
+        $obTarefa = new Tarefa($descricao);
+        $cadastro = $obTarefa->cadastrar($descricao);
+        $cadastro ? header('Location: ../../public/pages/index.php') : '';
     }
 ?>

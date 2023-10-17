@@ -22,7 +22,6 @@
                 try{
                 $this->connection = new PDO('mysql:host='.getenv('DB_HOST').';dbname='.getenv('DB_NAME'), getenv('USER'), getenv('PASSWORD'));
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo 'Sucesso!';
             } catch (PDOException $e) {
                 die ('ERROR: '. $e->getMessage());
             }

@@ -4,9 +4,7 @@
     use Src\Entity\Tarefa;
 
     $filtro = $_GET['filtro'] ?? 'pendentes';
+    $filtro = $filtro == 'pendentes' ? 'situacao="pendente"' : '';
 
-    $tarefa = new Tarefa();
-    $tarefas = $tarefa->consultar($filtro);
-    echo '<pre>';
-    print_r($tarefas);
-    echo '</pre>';
+    $obTarefa = new Tarefa();
+    $tarefas = $obTarefa->consultar($filtro);

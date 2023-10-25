@@ -57,5 +57,27 @@
 
             return $this->execute($query);
         }
+
+        public function update($values, $where = null){
+            $fields = array_keys($values);
+
+            $where = !empty($where) ? 'WHERE ' .$where : '';
+
+            $query = 'UPDATE ' .$this->table. ' SET ' .implode('=?,', $fields). '=? ' .$where;
+
+            $this->execute($query, array_values($values));
+
+            return true;
+        }
+
+        public function delete($where = ''){
+            $where = !empty($where) ? 'WHERE ' .$where : '';
+
+            $query = 'DELETE FROM ' .$this->table. ' ' .$where;
+
+            $this->execute($query);
+
+            return true;
+        }
     }
 ?>

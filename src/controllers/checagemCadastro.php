@@ -3,7 +3,7 @@
     
     use Src\Entity\Tarefa;
 
-    $descricao = $_POST['descricao'] ?? '';
+    $descricao = $_GET['descricao'] ?? '';
 
     if(!isset($descricao)){
         header('Location: formulario.php?erro=naoInserido');

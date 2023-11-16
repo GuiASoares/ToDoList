@@ -19,22 +19,49 @@
             filter: brightness(0.9);
         }
 
-        ::-webkit-scrollbar-track {
+        #table::-webkit-scrollbar-track {
             background-color: transparent;
         }
 
-        ::-webkit-scrollbar {
+        #table::-webkit-scrollbar {
             width: 10px;
+            height: 5px;
             background: transparent;
         }
 
-        ::-webkit-scrollbar-thumb {
+        #table::-webkit-scrollbar-thumb {
             background: #dad7d7;
             border-radius: 10px;
         }
 
         .lines + .lines{
             border-top: solid 1px rgba(200, 200, 200);
+        }
+
+        #table {
+            max-height: 500px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        @media(max-width: 600px){
+            .lines {
+                font-size: 0.8em;
+            }
+
+            #table {
+                overflow-x: auto;
+            }
+        }
+
+        @media(max-width: 450px){
+            .lines {
+                font-size: 0.6em;
+            }
+
+            #tableTitle {
+                font-size: 0.7em;
+            }
         }
     </style>
     <title>Lista de Tarefas</title>

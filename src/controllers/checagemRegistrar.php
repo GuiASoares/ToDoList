@@ -6,7 +6,7 @@
     use Src\Entity\Usuario;
 
     if(!isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['senhaConfirm'])){
-        header('Location: ../../public/pages/index.php?pag=registerForm');
+        header('Location: ../../public/pages/index.php?pag=registerForm&erro=invalidos');
         exit;
     }
     $nome = $_POST['nome'];
@@ -23,11 +23,12 @@
     $usuario->__set('senha', $senha);
     $registrar = $usuario->registrarUsuario();
 
-    if($registrar){
-        $_SESSION['nome'] = $usuario->nome;
-        header('Location: ../../public/pages/mainPage.php');
+    if(!$registrar){
+        header('Location: ../../public/pages/index.php?pag=registerForm&erro=emailCadastrado');
         exit;
     } else {
-        header('Location: ../../public/pages/index.php?pag=registerForm');
+        $_SESSION['nome'] = $usuario->nome;
+        $_SESSION['id'] = $usuario->id;
+        header('Location: ../../public/pages/mainPage.php');
         exit;
     }

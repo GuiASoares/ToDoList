@@ -5,6 +5,7 @@
     use Src\DB\Database;
 
     class Usuario {
+        public $id;
         public $nome;
         public $email;
         private $senha;
@@ -23,12 +24,34 @@
         public function registrarUsuario(){
             $database = new Database('usuarios');
 
-            $insert = $database->insert([
+            $checagemEmail = $database->select('email="'.$this->email.'"')->fetchObject();
+            if($checagemEmail){
+                return false;
+            }
+
+            $database->insert([
                 'nome' => $this->nome,
                 'email' => $this->email,
                 'senha' => $this->senha
             ]);
 
-            return $insert;
+            $this->id = $database->select('email="'.$this->email.'"','','','id')->fetchObject()->id;
+
+            return true;
+        }
+
+        public function entrarUsuario(){
+            $database = new Database('usuarios');
+
+            $consulta = $database->select('email="'.$this->email.'" AND senha="'.$this->senha.'"')->fetchObject();
+
+            $this->nome = $consulta->nome;
+            $this->id = $consulta->id;
+
+            if(!$consulta){
+                return false;
+            } else {
+                return true;
+            }
         }
     }

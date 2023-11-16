@@ -5,11 +5,11 @@
 
     $filtro = $_GET['filtro'] ?? '';
     if($filtro == 'pendentes'){
-        $filtragem = 'situacao="pendente"';
+        $filtragem = 'situacao="pendente" AND id_usuario='.$_SESSION['id'];
     } else if($filtro == 'concluidos'){
-        $filtragem= 'situacao="concluido"';
+        $filtragem= 'situacao="concluido" AND id_usuario='.$_SESSION['id'];
     } else {
-        $filtragem = '';
+        $filtragem = 'id_usuario='.$_SESSION['id'];
     }
 
     $obTarefa = new Tarefa();

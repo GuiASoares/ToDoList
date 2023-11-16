@@ -1,13 +1,14 @@
-<header class="container mt-5 text-center">
-    <h1 class="bg-primary rounded-2 p-1">Lista de Tarefas</h1>
+<header class="container mt-5 text-center d-flex justify-content-end">
+        <h1 class="bg-primary rounded-start-2 p-1 w-100 m-0" style="z-index: 1;">Lista de Tarefas</h1>
+        <a href="../../src/controllers/checagemLogout.php" style="width: 10%; z-index: 2;"><button class="btn btn-secondary h-100 w-100" style="border-radius: 0px 5px 5px 0px;">Sair</button></a>
 </header>
 <main class="container d-flex mt-5" style="gap:20px;">
     <div class="row w-100 m-0">
         <div class="col-md-2">
             <section class="bg-light d-flex flex-column rounded fw-bold mb-3" style="height:min-content;">
-                <a href="../pages/index.php?filtro=" class="p-2 text-decoration-none text-hover" style="<?php echo $filtro == '' ? 'color: #0D6EFD;' : ''; ?>">Todas as Tarefas</a>
-                <a href="../pages/index.php?filtro=pendentes" class="p-2 text-decoration-none text-hover" style="<?php echo $filtro == 'pendentes' ? 'color: #0D6EFD;' : ''; ?>">Tarefas Pendentes</a>
-                <a href="../pages/index.php?filtro=concluidos" class="p-2 text-decoration-none text-hover" style="<?php echo $filtro == 'concluidos' ? 'color: #0D6EFD;' : ''; ?>">Tarefas Concluídas</a>
+                <a href="../pages/mainPage.php?filtro=" class="p-2 text-decoration-none text-hover" style="<?php echo $filtro == '' ? 'color: #0D6EFD;' : ''; ?>">Todas as Tarefas</a>
+                <a href="../pages/mainPage.php?filtro=pendentes" class="p-2 text-decoration-none text-hover" style="<?php echo $filtro == 'pendentes' ? 'color: #0D6EFD;' : ''; ?>">Tarefas Pendentes</a>
+                <a href="../pages/mainPage.php?filtro=concluidos" class="p-2 text-decoration-none text-hover" style="<?php echo $filtro == 'concluidos' ? 'color: #0D6EFD;' : ''; ?>">Tarefas Concluídas</a>
                 <a href="../pages/criarTarefa.php" class="p-2 text-decoration-none text-hover" style="<?php echo !isset($filtro) ? 'color: #0D6EFD;' : ''; ?>">Nova Tarefa</a>
             </section>
         </div>    
@@ -31,32 +32,32 @@
 
                     <?php } else {?>
 
-                    <div class="row text-center">
+                    <div class="row text-center" id="tableTitle">
                         <div class="col-4">
                             <p class="fw-bold m-1">Descrição</p>
                         </div>
                         <div class="col-4">
                             <p class="fw-bold m-1">Data</p>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <p class="fw-bold m-1">Ações</p>
                         </div>
                     </div>
-                    <div style="max-height: 500px; overflow-y: auto; overflow-x: hidden;" >
+                    <div id="table">
 
                     <?php
                         foreach($tarefas as $tarefa){
-                            $tarefa['data'] = date('d/m/Y H:i:s', strtotime($tarefa['data']))
+                            $tarefa['data'] = date('d/m/Y H:i:s', strtotime($tarefa['data']));
                     ?>
 
-                    <div class="row d-flex align-items-center text-center lines">
+                    <div class="row d-flex align-items-center text-center lines" style="margin-right: 0; flex-wrap: nowrap;">
                         <div class="col-4">
                             <p class="m-1"><?=$tarefa['descricao']?></p>
                         </div>
                         <div class="col-4">
                             <p class="m-1"><?=$tarefa['data']?></p>
                         </div>
-                        <div class="col-4 d-flex justify-content-center" style="gap: 5px;">
+                        <div class="col-3 d-flex justify-content-center" style="gap: 5px;">
 
                             <?php if($tarefa['situacao'] == 'pendente'){?>
 
@@ -119,7 +120,7 @@
 
                                 <p class="m-1 text-secondary">Concluída</p>
                                 </div>
-                                <div class="col-1">
+                                <div class="col-1 text-center">
                                     <a href="../../src/controllers/checagemExcluirTarefa.php?filtro=<?=$filtro?>&id=<?=$tarefa['id']?>"><button type="button" class="btn-close"></button></a>
 
                                 <?php } ?>

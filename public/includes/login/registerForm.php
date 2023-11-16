@@ -1,3 +1,14 @@
+<?php
+    $mensagemErro = '';
+    if(isset($_GET['erro']) && $_GET['erro'] == 'invalidos'){
+        $mensagemErro = 'Preencha todos os campos corretamente para prosseguir!';
+    } else if(isset($_GET['erro']) && $_GET['erro'] == 'senhasDiferentes'){
+        $mensagemErro = 'As senhas inseridas devem ser iguais!';
+    } else if(isset($_GET['erro']) && $_GET['erro'] == 'emailCadastrado'){
+        $mensagemErro = 'O e-mail inserido já foi cadastrado!';
+    }
+?>
+
 <header class="container text-center mt-5">
     <h1 class="bg-primary rounded-2 p-2">Faça seu cadastro para prosseguir.</h1>
 </header>
@@ -14,6 +25,7 @@
                 <input type="password" id="senhaInput" class="form-control" name="senha" required>
                 <label for="" class="form-label mt-3">Confirme sua senha:</label>
                 <input type="password" id="senhaConfirmInput" class="form-control" name="senhaConfirm" required>
+                <p class="text-danger m-1"><?=$mensagemErro?></p>
                 <input type="submit" value="Cadastrar-se" class="btn btn-success mt-3 w-100">
             </div>
             <div class="card-footer p-3">

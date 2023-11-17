@@ -44,6 +44,10 @@
             overflow-x: hidden;
         }
 
+        #formContainer {
+            width: 60%;
+        }
+
         @media(max-width: 600px){
             .lines {
                 font-size: 0.8em;
@@ -51,6 +55,10 @@
 
             #table {
                 overflow-x: auto;
+            }
+
+            #formContainer {
+                width: 100%;
             }
         }
 
@@ -66,6 +74,32 @@
     </style>
     <title>Lista de Tarefas</title>
 </head>
-
 <body class="bg-dark text-light">
     
+<?php if(isset($_SESSION['nome'], $_SESSION['id'])){ ?>
+    <header class="container mt-5 text-center d-flex justify-content-end">
+            <h1 class="bg-primary rounded-start-2 p-1 w-100 m-0" style="z-index: 1;">Lista de Tarefas</h1>
+            <div style="width: 10%;">
+                <button class="btn btn-secondary h-100 w-100" style="border-radius: 0px 5px 5px 0px;" data-bs-toggle="modal" data-bs-target="#confirmacaoLogout">Sair</button>
+            </div>
+
+            <div class="modal fade text-dark" id="confirmacaoLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sair?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-start m-0">Deseja realmente sair?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                            <a href="../../src/controllers/checagemLogout.php"><button type="button" class="btn btn-primary">Sim</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+<?php } ?>
+        

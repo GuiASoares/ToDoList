@@ -6,7 +6,7 @@
     use Src\Entity\Usuario;
 
     if(!isset($_POST['email'], $_POST['senha'])){
-        header('Location: ../../public/pages/index.php?erro=invalidos');
+        header('Location: ../../public/pages/index.php?erro=naoPreenchidos');
         exit;
     }
 
@@ -18,7 +18,7 @@
     $consulta = $usuario->entrarUsuario();
 
     if(!$consulta){
-        header('Location: ../../public/pages/index.php?erro=naoCadastrado');
+        header('Location: ../../public/pages/index.php?erro=invalidos');
         exit;
     } else {
         $_SESSION['nome'] = $usuario->nome;

@@ -5,10 +5,6 @@
     }
 ?>
 
-<header class="container mt-5 text-center d-flex justify-content-end">
-        <h1 class="bg-primary rounded-start-2 p-1 w-100 m-0" style="z-index: 1;">Lista de Tarefas</h1>
-        <a href="../../src/controllers/checagemLogout.php" style="width: 10%; z-index: 2;"><button class="btn btn-secondary h-100 w-100" style="border-radius: 0px 5px 5px 0px;">Sair</button></a>
-</header>
 <main class="container d-flex mt-5" style="gap:20px;">
     <div class="row w-100 m-0">
         <div class="col-md-2">

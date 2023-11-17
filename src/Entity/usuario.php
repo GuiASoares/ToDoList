@@ -1,6 +1,5 @@
 <?php
     namespace Src\Entity;
-    require('../../vendor/autoload.php');
 
     use Src\DB\Database;
 
@@ -29,6 +28,9 @@
                 return false;
             }
 
+            $options = ['cost' => 12];
+            $this->senha = password_hash($this->senha, PASSWORD_BCRYPT, $options);
+
             $database->insert([
                 'nome' => $this->nome,
                 'email' => $this->email,
@@ -43,15 +45,16 @@
         public function entrarUsuario(){
             $database = new Database('usuarios');
 
-            $consulta = $database->select('email="'.$this->email.'" AND senha="'.$this->senha.'"')->fetchObject();
-
-            $this->nome = $consulta->nome;
-            $this->id = $consulta->id;
+            $consulta = $database->select('email="'.$this->email.'"')->fetchObject();
 
             if(!$consulta){
                 return false;
-            } else {
+            } else if(password_verify($this->senha, $consulta->senha)) {
+                $this->nome = $consulta->nome;
+                $this->id = $consulta->id;
                 return true;
+            } else {
+                return false;
             }
         }
     }

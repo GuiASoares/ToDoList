@@ -15,7 +15,7 @@
                 <a href="../pages/criarTarefa.php" class="p-2 text-decoration-none text-hover" style="<?php echo !isset($filtro) ? 'color: #0D6EFD;' : ''; ?>">Nova Tarefa</a>
             </section>
         </div>
-        <section class=" container ml-5 text-dark" style="width: 80%;">
+        <section class="container col-md-10 text-dark" id="formSection">
             <form action="../../src/controllers/checagemCadastro.php" method="post" class="form bg-light rounded">
                 <div class="form-group p-4 pb-2">
                     <label for="descTarefa" class="form-label">Descrição da Tarefa:</label>
@@ -26,5 +26,5 @@
                     <a href="index.php"><input type="button" value="Cancelar" class="btn btn-danger"></a>
                     <input type="submit" name="criar" value="Criar" class="btn btn-success">
                 </div>
-        </form>
-    </section>
+            </form>
+        </section>

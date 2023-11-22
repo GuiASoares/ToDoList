@@ -1,6 +1,11 @@
 <?php
-    include('../../src/controllers/checagemConsulta.php');
+    session_start();
+    if(isset($_SESSION['nome'], $_SESSION['id'])){
+        header('Location: mainPage.php');
+        exit;
+    }
     include('../includes/header.php');
-    include('../includes/listagem.php');
+    $pagina = $_GET['pag'] ?? 'loginForm';
+    include('../includes/login/'.$pagina.'.php');
     include('../includes/footer.php');
 ?>

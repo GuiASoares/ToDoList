@@ -1,9 +1,5 @@
-<?php 
-    namespace Src\DB;
-
-    use PDO;
-    use PDOException;
-    use Src\Common\Environment;
+<?php
+    require('../../src/Common/environment.php');
 
     Environment::load('../..');
 

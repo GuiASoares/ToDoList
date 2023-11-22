@@ -1,19 +1,18 @@
 <?php
-    namespace Src\Entity;
-
-    use Src\DB\Database;
-    use PDO;
+    require('../../src/DB/database.php');
 
     class Tarefa {
         private $id;
+        private $id_usuario;
         public $descricao;
         public $data;
         public $situacao;
 
-        public function __construct($descricao = '', $id = '')
+        public function __construct($descricao = '', $id = '', $id_usuario = '')
         {
             $this->descricao = $descricao;
             $this->id = $id;
+            $this->id_usuario = $id_usuario;
         }
 
         public function cadastrar(){
@@ -26,7 +25,9 @@
 
             $cadastro = $database->insert([
                 'descricao' => $this->descricao,
-                'data' => $this->data
+                'data' => $this->data,
+                'situacao' => 'pendente',
+                'id_usuario' => $this->id_usuario
             ]);
 
             return $cadastro;

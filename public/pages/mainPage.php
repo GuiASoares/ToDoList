@@ -4,7 +4,7 @@
         header('Location: index.php?erro=naoLogado');
         exit;
     }
+    include('../../src/controllers/checagemConsulta.php');
     include('../includes/header.php');
-    include('../includes/formulario.php');
+    include('../includes/listagem.php');
     include('../includes/footer.php');
-?>

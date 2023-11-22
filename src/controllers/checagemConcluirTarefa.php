@@ -1,7 +1,5 @@
 <?php
-    require('../../vendor/autoload.php');
-
-    use Src\Entity\Tarefa;
+    require('../Entity/tarefa.php');
 
     if(!isset($_GET['id']) || !isset($_GET['filtro'])){
         header('Location: ../../public/pages/index.php');

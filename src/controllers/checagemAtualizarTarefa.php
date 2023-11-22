@@ -1,7 +1,5 @@
 <?php
-    require('../../vendor/autoload.php');
-
-    use Src\Entity\Tarefa;
+    require('../Entity/tarefa.php');
 
     $filtro = $_POST['filtro'] ?? '';
     if(!isset($_POST['id'])){

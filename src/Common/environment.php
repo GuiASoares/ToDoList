@@ -1,6 +1,4 @@
 <?php 
-    namespace Src\Common;
-
     class Environment{
         public static function load($dir){
             if(!file_exists($dir.'/.env')){

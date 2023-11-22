@@ -9,7 +9,6 @@ Para a produção desse site foram utilizados HTML, CSS e PHP (o mais utilizado 
 ### :rotating_light: Recursos Necessários para Rodar o Site em sua Máquina:
 Existem alguns requisitos para que o código funcione em seu computador, como:
 - Possuir o PHP instalado em sua máquina, juntamente com o Apache e o MySQL, em meu caso, foi instalado o software XAMPP, que em sua instalação inclui o PHP e esses serviços.
-- Ter o Composer instalado, pois foi utilizado para fazer o autoload das classes utilizadas no código.
 - Criar um arquivo chamado ".env", onde devem ser declararadas as variáveis de ambiente, segundo o exemplo dado no arquivo ".env.example".
 
 ---

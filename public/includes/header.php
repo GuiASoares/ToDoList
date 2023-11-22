@@ -48,6 +48,10 @@
             width: 60%;
         }
 
+        td {
+            vertical-align: middle;
+        }
+
         @media(max-width: 800px){
             .lines {
                 font-size: 0.8em;

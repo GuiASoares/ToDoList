@@ -1,8 +1,5 @@
 <?php
-    namespace Src\Entity;
-
-    use Src\DB\Database;
-    use PDO;
+    require('../../src/DB/database.php');
 
     class Tarefa {
         private $id;

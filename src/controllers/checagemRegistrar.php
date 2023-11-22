@@ -1,9 +1,7 @@
 <?php
     session_start();
     
-    require('../../vendor/autoload.php');
-
-    use Src\Entity\Usuario;
+    require('../Entity/usuario.php');
 
     if(!isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['senhaConfirm'])){
         header('Location: ../../public/pages/index.php?pag=registerForm&erro=invalidos');

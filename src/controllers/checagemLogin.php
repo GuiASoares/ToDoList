@@ -1,9 +1,7 @@
 <?php
     session_start();
 
-    require('../../vendor/autoload.php');
-
-    use Src\Entity\Usuario;
+    require('../Entity/usuario.php');
 
     if(!isset($_POST['email'], $_POST['senha'])){
         header('Location: ../../public/pages/index.php?erro=naoPreenchidos');

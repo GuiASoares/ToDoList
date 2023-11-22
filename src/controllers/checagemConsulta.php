@@ -1,7 +1,5 @@
 <?php
-    require('../../vendor/autoload.php');
-
-    use Src\Entity\Tarefa;
+    require('../../src/Entity/tarefa.php');
 
     $filtro = $_GET['filtro'] ?? '';
     if($filtro == 'pendentes'){

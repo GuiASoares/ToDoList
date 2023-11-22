@@ -1,7 +1,5 @@
 <?php
-    namespace Src\Entity;
-
-    use Src\DB\Database;
+    require('../../src/DB/database.php');
 
     class Usuario {
         public $id;

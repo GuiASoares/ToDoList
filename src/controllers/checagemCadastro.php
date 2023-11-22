@@ -1,9 +1,7 @@
 <?php
     session_start();
 
-    require("../../vendor/autoload.php");
-    
-    use Src\Entity\Tarefa;
+    require("../Entity/tarefa.php");
 
     $descricao = $_POST['descricao'] ?? '';
     $id_usuario = $_SESSION['id'];
